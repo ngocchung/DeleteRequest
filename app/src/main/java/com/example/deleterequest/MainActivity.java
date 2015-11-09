@@ -73,6 +73,21 @@ public class MainActivity extends Activity {
                 headers.put("Authorization", auth);
                 return headers;
             }
+			
+			@Override
+            protected VolleyError parseNetworkError(VolleyError volleyError) {
+                String json;
+                if (volleyError.networkResponse != null && volleyError.networkResponse.data != null) {
+                    try {
+                        json = new String(volleyError.networkResponse.data,
+                                HttpHeaderParser.parseCharset(volleyError.networkResponse.headers));
+                    } catch (UnsupportedEncodingException e) {
+                        return new VolleyError(e.getMessage());
+                    }
+                    return new VolleyError(json);
+                }
+                return volleyError;
+            }
         };
         requestQueue.add(deleteRequest);
     }
