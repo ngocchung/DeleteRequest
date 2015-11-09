@@ -33,11 +33,11 @@ public class MainActivity extends Activity {
         // DELETE REQUEST WITH BODY
         // NOTES: ok-http 1.6.0 is used instead of the lastest version
         HttpStack httpStack;
-        if (Build.VERSION.SDK_INT >= 9 && Build.VERSION.SDK_INT <= 19)
+        if (Build.VERSION.SDK_INT > 19){
+            httpStack = new CustomHurlStack();
+        } else if (Build.VERSION.SDK_INT >= 9 && Build.VERSION.SDK_INT <= 19)
         {
             httpStack = new OkHttpHurlStack();
-        } else if (Build.VERSION.SDK_INT > 19){
-            httpStack = new CustomHurlStack();
         } else {
             httpStack = new HttpClientStack(AndroidHttpClient.newInstance("Android"));
         }
