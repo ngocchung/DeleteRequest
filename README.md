@@ -4,7 +4,7 @@ An Android sample project that implements DELETE request with body parameters.
 
 ## Code Example
 ```
-HttpStack httpStack;
+        HttpStack httpStack;
         if (Build.VERSION.SDK_INT >= 9 && Build.VERSION.SDK_INT <= 19)
         {
             httpStack = new OkHttpHurlStack();
