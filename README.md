@@ -4,15 +4,15 @@ An Android sample project that implements DELETE request with body parameters.
 
 ## Code Example
 
-HttpStack httpStack;
-        if (Build.VERSION.SDK_INT >= 9 && Build.VERSION.SDK_INT <= 19)
-        {
-            httpStack = new OkHttpHurlStack();
-        } else if (Build.VERSION.SDK_INT > 19){
-            httpStack = new CustomHurlStack();
-        } else {
-            httpStack = new HttpClientStack(AndroidHttpClient.newInstance("Android"));
-        }
+HttpStack httpStack; <br />
+        if (Build.VERSION.SDK_INT >= 9 && Build.VERSION.SDK_INT <= 19) <br />
+        { <br />
+            httpStack = new OkHttpHurlStack(); <br />
+        } else if (Build.VERSION.SDK_INT > 19){ <br />
+            httpStack = new CustomHurlStack(); <br />
+        } else { <br />
+            httpStack = new HttpClientStack(AndroidHttpClient.newInstance("Android")); <br />
+        } <br />
         RequestQueue requestQueue = Volley.newRequestQueue(this, httpStack);
 
 ## Motivation
