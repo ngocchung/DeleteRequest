@@ -1,6 +1,6 @@
 ## Synopsis
 
-An Android sample project that implements DELETE request with body parameters.
+An Android Volley sample project that implements DELETE request with body parameters.
 
 ## Code Example
 ```
